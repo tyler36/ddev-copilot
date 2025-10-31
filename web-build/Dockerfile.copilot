@@ -1,0 +1,5 @@
+## #ddev-generated
+
+## Install GitHub Copilot in the web container globally.
+## This prevents the package from polluting the project package.lock file.
+RUN npm install -g @github/copilot

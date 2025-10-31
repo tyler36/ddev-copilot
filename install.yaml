@@ -1,6 +1,6 @@
 name: copilot
 
 project_files:
-  - docker-compose.copilot.yaml
+  - web-build
 
 ddev_version_constraint: '>= v1.24.3'
