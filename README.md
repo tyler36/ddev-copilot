@@ -20,9 +20,9 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 ## Usage
 
-| Command                | Description        |
-| ---------------------- | ------------------ |
-| `ddev exec copilot`    | Start Copilot      |
+| Command        | Description   |
+| -------------- | ------------- |
+| `ddev copilot` | Start Copilot |
 
 @See [GitHub Copilot CLI](https://github.com/github/copilot-cli) for further information.
 

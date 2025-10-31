@@ -69,6 +69,23 @@ teardown() {
   health_checks
 }
 
+@test "copilot helper command" {
+  set -eu -o pipefail
+  echo "# ddev add-on get ${DIR} with project ${PROJNAME} in $(pwd)" >&3
+  run ddev add-on get "${DIR}"
+  assert_success
+
+  run ddev restart -y
+  assert_success
+
+  health_checks
+
+  # Assert command displays help
+  run ddev copilot --help
+  assert_success
+  assert_output --partial "GitHub Copilot CLI - An AI-powered coding assistant"
+}
+
 # bats test_tags=release
 @test "install from release" {
   set -eu -o pipefail
