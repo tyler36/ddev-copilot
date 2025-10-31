@@ -7,7 +7,7 @@
 
 ## Overview
 
-This add-on integrates Copilot into your [DDEV](https://ddev.com/) project.
+This add-on integrates [GitHub Copilot](https://github.com/features/copilot) into your [DDEV](https://ddev.com/) project.
 
 ## Installation
 
@@ -20,28 +20,33 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 ## Usage
 
-| Command | Description |
-| ------- | ----------- |
-| `ddev describe` | View service status and used ports for Copilot |
-| `ddev logs -s copilot` | Check Copilot logs |
+| Command                | Description        |
+| ---------------------- | ------------------ |
+| `ddev exec copilot`    | Start Copilot      |
 
-## Advanced Customization
+@See [GitHub Copilot CLI](https://github.com/github/copilot-cli) for further information.
 
-To change the Docker image:
+### Authorization
 
-```bash
-ddev dotenv set .ddev/.env.copilot --copilot-docker-image="ddev/ddev-utilities:latest"
-ddev add-on get tyler36/ddev-copilot
-ddev restart
-```
+If you're not currently logged in to GitHub, you'll be prompted to use the /login slash command. Enter this command and follow the on-screen instructions to authenticate.
 
-Make sure to commit the `.ddev/.env.copilot` file to version control.
+### Authenticate with a Personal Access Token (PAT)
 
-All customization options (use with caution):
+You can also authenticate using a fine-grained PAT with the "Copilot Requests" permission enabled.
 
-| Variable | Flag | Default |
-| -------- | ---- | ------- |
-| `COPILOT_DOCKER_IMAGE` | `--copilot-docker-image` | `ddev/ddev-utilities:latest` |
+1. Visit <https://github.com/settings/personal-access-tokens/new>
+1. Under "Permissions," click "add permissions" and select "Copilot Requests"
+1. Generate your token
+1. Add the token to your environment via the environment variable `GH_TOKEN` or `GITHUB_TOKEN` (in order of precedence).
+  For example:
+
+    ```ini
+    # .ddev/.env
+    GH_TOKEN=super-secret-github-pat
+    ```
+
+> [!CAUTION]
+> `.ddev/.env` and your PAT are considered sensitive information. Do *NOT* commit these values to your repository.
 
 ## Credits
 
