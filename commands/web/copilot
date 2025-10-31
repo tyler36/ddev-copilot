@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#ddev-generated
+## Description: Run GitHub Copilot inside the web container
+## Usage: copilot [flags] [args]
+## Example: "ddev copilot" or "ddev copilot --banner"
+
+copilot  "$@"
